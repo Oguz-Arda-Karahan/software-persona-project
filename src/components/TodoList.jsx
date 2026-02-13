@@ -1,9 +1,10 @@
+
 import TodoItem from "./TodoItem";
 
-function TodoList({ todos, deleteTodo, updateTodo }) {
+function TodoList({ tasks, deleteTodo, updateTodo }) {
   return (
     <ul className="list-group">
-      {todos.map((todo) => (
+      {tasks.map((todo) => (
         <TodoItem
           key={todo.id}
           todo={todo}

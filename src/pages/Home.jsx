@@ -3,7 +3,7 @@ import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
 
 function Home() {
-  const [todos, setTodos] = useState([]);
+  const [tasks, setTasks] = useState([]);
 
   const addTodo = (text) => {
     const newTodo = {
@@ -11,16 +11,16 @@ function Home() {
       text,
       completed: false,
     };
-    setTodos([...todos, newTodo]);
+    setTasks([...tasks, newTodo]);
   };
 
   const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setTasks(tasks.filter((todo) => todo.id !== id));
   };
 
   const updateTodo = (id, newText) => {
-    setTodos(
-      todos.map((todo) =>
+    setTasks(
+      tasks.map((todo) =>
         todo.id === id ? { ...todo, text: newText } : todo
       )
     );
@@ -31,7 +31,7 @@ function Home() {
       <h2 className="text-center mb-4">Todo App</h2>
       <TodoForm addTodo={addTodo} />
       <TodoList
-        todos={todos}
+        tasks={tasks}
         deleteTodo={deleteTodo}
         updateTodo={updateTodo}
       />
